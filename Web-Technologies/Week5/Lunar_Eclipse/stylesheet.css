@@ -1,0 +1,40 @@
+body{
+    background-color: black;
+}
+.moon
+{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255); 
+    box-shadow: 0 0 20px white;
+}
+.sun
+{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    height: 310px;
+    width: 310px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    animation: linear 10s 0s infinite forwards linearAnimation;
+}
+@keyframes linearAnimation {
+    0%
+    {
+        transform: translateX(0px);
+    }
+    50%
+    {
+        transform: translateX(500px);
+    }
+    100%
+    {
+        transform: translateX(-500px);
+    }
+}

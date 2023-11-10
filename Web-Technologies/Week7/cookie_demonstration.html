@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome User</title>
+</head>
+<body onload="welcomeUser()">
+    <h1>Welcome to Our Website</h1>
+    <p id="welcomeMessage"></p>
+    <label for="name">Enter your name: </label>
+    <input type="text" id="name" name="name">
+    <button onclick="storeName()">Submit</button>
+
+    <script>
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function welcomeUser() {
+            let user = getCookie("username");
+            let lastVisit = getCookie("lastVisit");
+            if (user != "") {
+                alert('Welcome back, ' + user + '! Your last visit was on ' + lastVisit);
+            }
+        }
+
+        function storeName() {
+            let name = document.getElementById('name').value;
+            let date = new Date();
+            document.cookie = "username=" + name + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.cookie = "lastVisit=" + date.toUTCString() + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            document.getElementById('welcomeMessage').innerText = 'Thank you, ' + name + '!';
+        }
+    </script>
+</body>
+</html>

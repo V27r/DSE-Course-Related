@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #87CEEB;
+    margin: 0;
+}
+
+.flower {
+    position: relative;
+    width: 20px;
+    height: 600px;
+    animation: rotateFlower 10s linear infinite;
+    z-index: 1;
+}
+
+.stem {
+    width: 7px;
+    height: 150px;
+    background-color: #228B22;
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.petal {
+    width: 80px;
+    height: 20px;
+    background-color: #FF69B4;
+    position: absolute;
+    border-radius: 30%;
+    border-top: 50%;
+    top: 50%;
+    left: 50%;
+}
+
+.center {
+    width: 20px;
+    height: 20px;
+    background-color: #FFD700;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#petal1 { 
+    animation: bloom1 2s infinite; 
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+#petal2 { 
+    animation: bloom2 2s infinite; 
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+#petal3 { 
+    animation: bloom3 2s infinite; 
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+#petal4 { 
+    animation: bloom4 2s infinite; 
+    transform: translate(-50%, -50%) rotate(270deg);
+}
+@keyframes rotateFlower {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bloom1 {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes bloom2 {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(90deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(90deg) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes bloom3 {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes bloom4 {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(270deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(270deg) scale(1.1);
+        opacity: 0.8;
+    }
+}
