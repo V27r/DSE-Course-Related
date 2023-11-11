@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Event Handling</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#submitBtn').click(function(e) {
+                e.preventDefault(); // Prevent the default form submission
+
+                // Get form data
+                var formData = new FormData($('#myForm')[0]);
+
+                $.ajax({
+                    url: 'upload.php', // PHP file to handle the form submission
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // Handle the response from the server
+                        console.log(response);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle errors
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>UPLOAD YOUR RESUME</h1>
+        <form id="myForm" enctype="multipart/form-data">
+            <input type="file" name="resume" accept=".pdf" required>
+            <button type="button" id="submitBtn">SUBMIT</button>
+        </form>
+    </div>  
+</body>
+</html>
